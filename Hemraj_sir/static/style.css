@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.body::-webkit-scrollbar {
+  background-color: transparent;
+  width:0.4vw
+}
+
+.body::-webkit-scrollbar-track {
+  background-color:transparent
+}
+.body::-webkit-scrollbar-track:hover {
+  background-color:transparent
+}
+
+.body::-webkit-scrollbar-thumb {
+  background-color:#babac0;
+  border-radius:16px;
+  border:5px solid transparent
+}
+.body::-webkit-scrollbar-thumb:hover {
+  background-color:#a0a0a5;
+}
+
+.body::-webkit-scrollbar-button {display:none}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1050px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  z-index: 10;
+  position: sticky;
+  width: 100%;
+  box-shadow: pink;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+}
+
+.navbar .menu-items {
+  display: flex;
+}
+
+.navbar .nav-container li {
+  list-style: none;
+}
+
+.navbar .nav-container a {
+  text-decoration: none;
+  color: #0e2431;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+}
+
+.navbar .nav-container a:hover{
+    font-weight: bolder;
+}
+
+.nav-container {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.nav-container .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+  display: block;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #0e2431;
+}
+
+.nav-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+  padding-top: 120px;
+  height: 100vh;
+  width: 100%;
+  transform: translate(-150%);
+  display: flex;
+  flex-direction: column;
+  margin-left: -40px;
+  padding-left: 50px;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 1.2rem;
+  color: #0e2431;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  pointer-events: auto;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .logo{
+  display: none;
+}
+
+html {
+  font-size: 10.5px;
+  letter-spacing: 1px;
+}
+
+button {
+  display: block;
+  position: relative;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-shadow: inherit;
+  cursor: pointer;
+  outline: inherit;
+  z-index: 10;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.big {
+  font-size: 150%;
+}
+
+.med {
+  font-size: 100%;
+  letter-spacing: .5px;
+}
+
+.small {
+  font-size: 65%;
+  letter-spacing: .5px;
+}
+
+.no-space {
+  letter-spacing: 0px;
+}
+
+.card {
+  background-color: #f4f1eb;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  z-index: 1;
+  height: 200px;
+  width: 350px;
+  margin: 20vh auto 0 auto;
+  padding: 20px 10px 10px 10px;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
+  /*transform-origin: 50% 100%;*/
+  box-shadow: 0;
+  transition: transform .4s ease,
+              box-shadow .4s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) translateZ(10px);
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, .4);
+}
+
+.card:hover {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(10px);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .4);
+}
+
+.card:hover::before {
+  transform: skewX(0deg) translateX(0px) translateY(0px);
+  height: 0px;
+}
+
+.card:hover::after {
+  transform: skewY(0deg) translateX(0px) translateY(0px);
+  width: 0px;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: grey;
+  transition: transform .4s ease,
+              height .4s ease,
+              width .4s ease;
+}
+
+.card a{
+  text-decoration: none;
+  color: inherit;
+}
+.card a:hover{
+  color: rgb(113, 113, 113);
+}
+
+.card::before {
+  width: 100%;
+  height: 6px;
+  bottom: 0;
+  left: 0;
+  transform: skewX(45deg) translateX(-3px) translateY(6px);
+}
+
+.card::after {
+  height: 100%;
+  width: 6px;
+  top: 0;
+  right: 0;
+  transform: skewY(45deg) translateX(6px) translateY(-3px);
+}
+
+.row {
+  display: block;
+  text-align: center;
+}
+
+.row:nth-child(2) {
+  margin: 35px 0 50px 0;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+}
+
+p {
+  margin: 0;
+}
+

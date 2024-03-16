@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phablet</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='public/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-h.css') }}">
+</head>
+
+<body>
+    <div class="_content">
+        <img src="{{ url_for('static', filename='public/bg1.png') }}" alt="login image" class="_img">
+
+        <form id="encryptForm" action="/encrypt" method="post" class="_form">
+            <div>
+                <h1 class="title">
+                    Phablet  <span> M1 - Hash</span>
+                </h1>
+            </div>
+            <div>
+                <div class="inputs">
+                    <div class="input-group">
+                        <input class="input" required type="text" id="data" name="data">
+                        <label class="label" for="data">Enter data to Hash:</label>
+                    </div>
+                    <div class="input-group">
+                        <select class="input" required id="input" name="input" style="width: calc(50% - 0.625vw);">
+                            <option value="character">Character</option>
+                            <option value="Decimal">Decimal</option>
+                            <option value="binary">Binary</option>
+                        </select>
+                        <label class="label" for="input">Select the Hash Output Type</label>
+                        <button class="input" style="width: calc(50% - 0.625vw); background: #000000; color: #a9a9a9;"
+                            type="submit">
+                            Generate the Hash
+                        </button>
+                    </div>
+
+                    <div class="input-group">
+                        <textarea class="input" id="result"></textarea>
+                        <label for="input-pass" class="label" for="data">Hash Value: </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <div class="credits">
+            All rights reserved by <a href="http://nihalawasthi.github.io/portfolio">Nihal Awasthi</a>
+        </div>
+    </div>
+
+    <script>
+        var resultTextArea = document.getElementById('result');
+        document.getElementById('encryptForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/encrypt', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    resultTextArea.value = data;
+                });
+        });
+    </script>
+</body>
+
+</html>
